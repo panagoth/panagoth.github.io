@@ -9,7 +9,7 @@
 <body class="bg-black text-green-400 font-mono">
   <div class="container mx-auto px-4 py-8">
     <header class="text-center mb-12">
-      <h1 class="text-4xl font-bold">Theodoros Panagopoulos</h1>
+      <h1 id="typewriter" class="text-4xl font-bold inline-block"></h1>
       <p class="text-xl mt-2">Junior Python Developer</p>
     </header>
 
@@ -46,8 +46,35 @@
     <section class="text-center">
       <h2 class="text-2xl font-semibold mb-4 border-b border-green-400 pb-2">Contact</h2>
       <p class="text-sm">GitHub: <a href="https://github.com/panagoth" class="underline hover:text-green-200">@panagoth</a></p>
-      <p class="text-sm">Email: theodoros.panagopoulos@example.com</p>
+      <p class="text-sm">Email: theodoros.panagopoulos@gmail.com</p>
     </section>
   </div>
+  <script>
+  const text = "Theodoros Panagopoulos";
+  const element = document.getElementById("typewriter");
+  let i = 0;
+
+  function typeWriter() {
+    if (i < text.length) {
+      element.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(typeWriter, 100);
+    }
+  }
+
+  window.onload = typeWriter;
+</script>
+
+<style>
+  #typewriter::after {
+    content: "|";
+    animation: blink 1s infinite;
+  }
+
+  @keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+  }
+</style>
 </body>
 </html>
